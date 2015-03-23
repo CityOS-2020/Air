@@ -1,0 +1,3 @@
+[submodule "GaugeView/WMGaugeView"]
+	path = GaugeView/WMGaugeView
+	url = https://github.com/SaidSikira/WMGaugeView.git
