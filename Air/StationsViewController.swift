@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import LTMorphingLabel
+
 
 class StationsViewController: UIViewController, UIScrollViewDelegate {
     
@@ -18,6 +20,8 @@ class StationsViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var gatheringLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var alertButton: UIButton!
+    
     var currentStationName : String?
     var newStations = Array<Station>()
     
@@ -27,6 +31,7 @@ class StationsViewController: UIViewController, UIScrollViewDelegate {
         self.navigationItem.title = ""
         self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "HelveticaNeue-Thin", size: 18)!,  NSForegroundColorAttributeName: UIColor.blackColor()]
+        self.gatheringLabel.text = "Gathering pollution data"
         
         self.stationsScrollView.delegate = self
         self.pageControl.numberOfPages = 0
@@ -34,12 +39,17 @@ class StationsViewController: UIViewController, UIScrollViewDelegate {
         
         StationsData.getStations {
             newstations,success in
+            println(newstations!.count)
             if success {
                 self.appDelegate.stations = newstations!
                 self.configureStations()
-                self.currentStationName = self.appDelegate.stations[0].display_name
-                self.title = self.currentStationName
-                self.appDelegate.sortStations()
+                if newstations!.count > 0 {
+                    self.currentStationName = self.appDelegate.stations[0].display_name
+                    self.title = self.currentStationName
+                    self.appDelegate.sortStations()
+                } else {
+                    self.noStations()
+                }
             } else {
                 UIView.animateWithDuration(0.4) { animations in
                     self.loadingIndicator.alpha = 0
@@ -48,6 +58,31 @@ class StationsViewController: UIViewController, UIScrollViewDelegate {
                     self.navigationItem.rightBarButtonItem = nil
                 }
             }
+        }
+        
+        if appDelegate.registered {
+            alertButton.setImage(UIImage(named: "alert-on"), forState: .Normal)
+        }
+        
+        var notificationType = UIApplication.sharedApplication().currentUserNotificationSettings().types
+        switch notificationType {
+        case UIUserNotificationType.None:
+            alertButton.setImage(UIImage(named: "alert-off"), forState: .Normal)
+            alertButton.setTitle("alerts off", forState: .Normal)
+        default:
+            alertButton.setImage(UIImage(named: "alert-on"), forState: .Normal)
+            alertButton.setTitle("alerts on", forState: .Normal)
+        }
+        
+        
+    }
+    
+    func noStations() {
+        UIView.animateWithDuration(0.4) { animations in
+            self.loadingIndicator.alpha = 0
+            self.gatheringLabel.text = "We couldn't fetch data right now :("
+            self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = nil
         }
     }
     
@@ -139,11 +174,15 @@ class StationsViewController: UIViewController, UIScrollViewDelegate {
         var pageWidth = self.stationsScrollView.frame.size.width
         var fract = self.stationsScrollView.contentOffset.x / pageWidth
         var page = lround(Double(fract))
-        var gaugeAtPage = self.stationsScrollView.subviews[page] as? StationGaugeView
-        currentStationName = newStations[page].display_name
-        self.title = currentStationName
-        self.pageControl.currentPage = page
-        self.stationsScrollView.contentOffset.y = 0
+        if page < 0 && page > appDelegate.stations.count {
+        } else {
+        if let gauge =  self.stationsScrollView.subviews[page] as? StationGaugeView {
+            currentStationName = newStations[page].display_name
+            self.title = currentStationName
+            self.pageControl.currentPage = page
+            self.stationsScrollView.contentOffset.y = 0
+        }
+        }
     }
     
 }

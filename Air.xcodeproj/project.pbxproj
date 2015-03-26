@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B32616F91AC2EFD200ABAD4B /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FA6B1AB976EF002E85FB /* StationsViewController.swift */; };
 		B355E7531ABDA8130044B74C /* StationGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355E7521ABDA8130044B74C /* StationGaugeView.swift */; };
 		B355E7551ABDA8200044B74C /* StationGaugeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B355E7541ABDA8200044B74C /* StationGaugeView.xib */; };
-		B355E75A1ABDA90C0044B74C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B355E7581ABDA90C0044B74C /* Alamofire.framework */; };
-		B355E75B1ABDA90C0044B74C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B355E7591ABDA90C0044B74C /* SwiftyJSON.framework */; };
 		B355E7601ABDAB350044B74C /* WMGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B355E75F1ABDAB350044B74C /* WMGaugeView.m */; };
 		B355E7651ABDB5A20044B74C /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355E7641ABDB5A20044B74C /* DataProvider.swift */; };
 		B355E7671ABDD5E60044B74C /* RankingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B355E7661ABDD5E60044B74C /* RankingsTableViewController.swift */; };
@@ -22,7 +21,8 @@
 		B376FA601AB82875002E85FB /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FA5F1AB82875002E85FB /* Tests.swift */; };
 		B376FA681AB82C06002E85FB /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FA671AB82C06002E85FB /* Station.swift */; };
 		B376FA6A1AB835BD002E85FB /* StationsMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FA691AB835BD002E85FB /* StationsMapViewController.swift */; };
-		B376FA6C1AB976EF002E85FB /* StationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B376FA6B1AB976EF002E85FB /* StationsViewController.swift */; };
+		B37B658C1AC301C000491A98 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B658B1AC301C000491A98 /* Alamofire.swift */; };
+		B37B658E1AC3020F00491A98 /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B37B658D1AC3020F00491A98 /* JSON.swift */; };
 		B3B3A4861ABEC35100FF1055 /* StationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3A4851ABEC35100FF1055 /* StationTableViewCell.swift */; };
 		B3B3A4881ABEE01100FF1055 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B3A4871ABEE01100FF1055 /* GoogleMaps.framework */; };
 		B3B3A48A1ABEE03200FF1055 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B3B3A4891ABEE03200FF1055 /* GoogleMaps.bundle */; };
@@ -55,8 +55,6 @@
 /* Begin PBXFileReference section */
 		B355E7521ABDA8130044B74C /* StationGaugeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationGaugeView.swift; sourceTree = "<group>"; };
 		B355E7541ABDA8200044B74C /* StationGaugeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StationGaugeView.xib; sourceTree = "<group>"; };
-		B355E7581ABDA90C0044B74C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		B355E7591ABDA90C0044B74C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		B355E75D1ABDAB350044B74C /* Air-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Air-Bridging-Header.h"; sourceTree = "<group>"; };
 		B355E75E1ABDAB350044B74C /* WMGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMGaugeView.h; path = GaugeView/WMGaugeView/WMGaugeView/WMGaugeView.h; sourceTree = SOURCE_ROOT; };
 		B355E75F1ABDAB350044B74C /* WMGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WMGaugeView.m; path = GaugeView/WMGaugeView/WMGaugeView/WMGaugeView.m; sourceTree = SOURCE_ROOT; };
@@ -75,6 +73,8 @@
 		B376FA671AB82C06002E85FB /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		B376FA691AB835BD002E85FB /* StationsMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsMapViewController.swift; sourceTree = "<group>"; };
 		B376FA6B1AB976EF002E85FB /* StationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationsViewController.swift; sourceTree = "<group>"; };
+		B37B658B1AC301C000491A98 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		B37B658D1AC3020F00491A98 /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		B3B3A4851ABEC35100FF1055 /* StationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationTableViewCell.swift; sourceTree = "<group>"; };
 		B3B3A4871ABEE01100FF1055 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B3B3A4891ABEE03200FF1055 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
@@ -112,8 +112,6 @@
 				B3B3A48E1ABEE05100FF1055 /* AVFoundation.framework in Frameworks */,
 				B3B3A48C1ABEE04B00FF1055 /* CoreLocation.framework in Frameworks */,
 				B3B3A4881ABEE01100FF1055 /* GoogleMaps.framework in Frameworks */,
-				B355E75A1ABDA90C0044B74C /* Alamofire.framework in Frameworks */,
-				B355E75B1ABDA90C0044B74C /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +187,8 @@
 				B376FA3B1AB8284E002E85FB /* Main.storyboard */,
 				B376FA321AB8284E002E85FB /* Supporting Files */,
 				B355E7561ABDA8380044B74C /* View Controllers */,
+				B37B658B1AC301C000491A98 /* Alamofire.swift */,
+				B37B658D1AC3020F00491A98 /* JSON.swift */,
 			);
 			path = Air;
 			sourceTree = "<group>";
@@ -238,8 +238,6 @@
 				B3B3A48B1ABEE04B00FF1055 /* CoreLocation.framework */,
 				B3B3A4891ABEE03200FF1055 /* GoogleMaps.bundle */,
 				B3B3A4871ABEE01100FF1055 /* GoogleMaps.framework */,
-				B355E7581ABDA90C0044B74C /* Alamofire.framework */,
-				B355E7591ABDA90C0044B74C /* SwiftyJSON.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,7 +252,6 @@
 				B376FA2B1AB8284E002E85FB /* Sources */,
 				B376FA2C1AB8284E002E85FB /* Frameworks */,
 				B376FA2D1AB8284E002E85FB /* Resources */,
-				B355E75C1ABDA9150044B74C /* Run Carthage */,
 			);
 			buildRules = (
 			);
@@ -344,40 +341,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		B355E75C1ABDA9150044B74C /* Run Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
-			);
-			name = "Run Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		B376FA2B1AB8284E002E85FB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B376FA6A1AB835BD002E85FB /* StationsMapViewController.swift in Sources */,
+				B37B658E1AC3020F00491A98 /* JSON.swift in Sources */,
 				B376FA381AB8284E002E85FB /* Air.xcdatamodeld in Sources */,
 				B3B3A4861ABEC35100FF1055 /* StationTableViewCell.swift in Sources */,
 				B376FA681AB82C06002E85FB /* Station.swift in Sources */,
 				B355E7671ABDD5E60044B74C /* RankingsTableViewController.swift in Sources */,
 				B355E7601ABDAB350044B74C /* WMGaugeView.m in Sources */,
+				B37B658C1AC301C000491A98 /* Alamofire.swift in Sources */,
 				B3E910EA1ABEF8530092649A /* StationDetail.swift in Sources */,
+				B32616F91AC2EFD200ABAD4B /* StationsViewController.swift in Sources */,
 				B355E7531ABDA8130044B74C /* StationGaugeView.swift in Sources */,
 				B355E7651ABDB5A20044B74C /* DataProvider.swift in Sources */,
-				B376FA6C1AB976EF002E85FB /* StationsViewController.swift in Sources */,
 				B376FA351AB8284E002E85FB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,7 +496,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1b3d775b-2582-47c3-bbc6-a95f5a70ce4f";
 				SWIFT_OBJC_BRIDGING_HEADER = "Air/Air-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -539,7 +519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1b3d775b-2582-47c3-bbc6-a95f5a70ce4f";
 				SWIFT_OBJC_BRIDGING_HEADER = "Air/Air-Bridging-Header.h";
 			};
 			name = Release;

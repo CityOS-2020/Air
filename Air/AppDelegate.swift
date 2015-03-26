@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import Alamofire
+import LTMorphingLabel
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var ascending = true
     var stationSettings = Dictionary<String,Bool>()
     var changedSomething : Bool = false
+    var registered = false
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         GMSServices.provideAPIKey("AIzaSyBh4QWh0Eq_L26QrcqLnzAoKg7DN8TvEzs")
@@ -27,7 +30,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.stationSettings = settings
         }
         
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        
+        let settings = UIUserNotificationSettings(forTypes: .Alert | .Badge | .Sound, categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for var i = 0; i < deviceToken.length; i++ {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        self.registered = true
+        //let defaults = NSUserDefaults.standardUserDefaults().setBool(true, forKey: "token")
+        StationsData.sendDeviceToken(tokenString)
+        
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        println(error.localizedDescription)
     }
 
     func applicationWillResignActive(application: UIApplication) {
